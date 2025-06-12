@@ -27,7 +27,7 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         submodules: recursive
         ref: ${{ github.event.inputs.build_version || 'v0.0.9' }}
@@ -82,7 +82,7 @@ jobs:
         # 例如使用 appimage-builder 或自定义脚本
 
     - name: Upload artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4  # 更新到最新版本
       with:
         name: ${{ matrix.artifact_name }}
         path: |
@@ -99,7 +99,7 @@ jobs:
     
     steps:
     - name: Download artifacts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4  # 也更新下载工件的操作
       
     - name: Create release
       uses: softprops/action-gh-release@v1
